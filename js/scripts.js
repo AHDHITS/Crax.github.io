@@ -1,7 +1,20 @@
-/*!
-* Start Bootstrap - Personal v1.0.1 (https://startbootstrap.com/template-overviews/personal)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-personal/blob/master/LICENSE)
-*/
-// This file is intentionally blank
-// Use this file to add JavaScript to your project
+const form = document.querySelector('.contactForm');
+
+function sendMsg(e){
+  e.preventDefault();
+
+      const name = document.querySelector('#name'),
+            email = document.querySelector('#email'),
+            msg = document.querySelector('#message'),
+
+  Email.send({
+      SecureToken : " 59b94b0f-927d-4a24-afdc-2e99de1ba02b",
+      To : 'ahdhits@gmail.com',
+      From : email.Value,
+      Subject : "Contact Form",
+      Body : msg.Value,
+  }).then(
+    message => alert(message)
+  );
+
+form.addEventListener('submit', sendMsg);
